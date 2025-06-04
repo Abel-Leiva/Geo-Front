@@ -1,0 +1,76 @@
+✅ Lista de tareas para mañana
+1. 🧠 Mover la lógica a Home
+
+Mover el useState de selectedProv y useFetch de provincias a Home.
+
+Crear también el estado selectedDept.
+
+Hacer en Home los llamados a las APIs de:
+
+Provincias
+
+Departamentos (filtrados por selectedProv)
+
+        Localidades (filtradas por selectedDept)
+
+2. 🗂️ Crear archivo de tipos comunes
+
+Crear un archivo src/types/georef.ts.
+
+Mover allí las interfaces:
+
+    Provincia
+
+    Centroide
+
+    ProvinciasResponse
+
+    Departamento, DepartamentosResponse (si las creás mañana)
+
+    Localidad, LocalidadesResponse (igual)
+
+    Importar los tipos en Home, ListProv, etc.
+
+3. 🧩 Actualizar ListProv
+
+    Convertir ListProv para que:
+
+        Reciba por props: provincias, selectedProv, setSelectedProv
+
+        Use el componente genérico ItemList<Item>
+
+        En renderCallback, devuelva el Card
+
+4. 🧱 Crear componentes nuevos
+
+Crear ListDept para departamentos.
+
+Crear ListLoc para localidades.
+
+    Ambos deberían usar el mismo componente ItemList<Item>, igual que ListProv.
+
+5. 🔄 Agregar lógica de flujo
+
+Cuando se hace click en una provincia:
+
+    Guardar la provincia en el estado
+
+    Llamar a la API de departamentos
+
+    Mostrar ListDept con los resultados
+
+    Cuando se hace click en un departamento:
+
+        Guardar el departamento en el estado
+
+        Llamar a la API de localidades
+
+        Mostrar ListLoc con los resultados
+
+🚀 Bonus (si te queda tiempo o para otro día):
+
+Manejar loading / error states en las llamadas a la API.
+
+Agregar una función para "volver atrás" (resetear selección).
+
+Usar un custom hook por cada recurso (opcional, más adelante).

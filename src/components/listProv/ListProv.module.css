@@ -1,0 +1,17 @@
+.conteiner {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+.cardConteiner {
+  display: flex;
+  flex-direction: row;
+  max-width: 90vw; /* vw, no vh */
+  padding: 5px;
+  border-bottom: solid 1px black;
+  margin-top: -10px;
+  flex-wrap: wrap; /* permite que las cards bajen a otra fila si no entran */
+  gap: 10px;
+  list-style: none;
+}
