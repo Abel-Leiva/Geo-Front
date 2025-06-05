@@ -1,4 +1,3 @@
-import style from "./card.module.css";
 interface CardProp {
   nombre: string;
   onClick: () => void;
@@ -8,11 +7,14 @@ interface CardProp {
 const Card = ({ nombre, onClick, isSelected }: CardProp) => {
   return (
     <div
-      className={style.cardConteiner}
+      className={`p-3 rounded-lg border-2 cursor-pointer transition-all duration-200 hover:shadow-md ${
+        isSelected
+          ? "border-blue-500 bg-blue-50 text-blue-900"
+          : "border-gray-200 bg-white hover:border-gray-300"
+      }`}
       onClick={onClick}
-      style={{ border: isSelected ? "2px solid red" : "1px solid gray" }}
     >
-      <span>{nombre}</span>
+      <span className="font-medium">{nombre}</span>
     </div>
   );
 };

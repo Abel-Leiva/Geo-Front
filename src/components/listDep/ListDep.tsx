@@ -15,19 +15,25 @@ const ListDep = ({
 }: ListDepProps) => {
   return (
     <div>
-      <h3>Lista de departamentos de {nameProv} </h3>
+      {nameProv != "" && (
+        <h3 className="text-lg font-semibold text-gray-800 mb-4">
+          Lista de departamentos de {nameProv}
+        </h3>
+      )}
 
-      <ItemList
-        items={departamentos}
-        renderCallBack={({ id, nombre }) => (
-          <Card
-            key={id}
-            nombre={nombre}
-            onClick={() => setSelectedDep({ id, nombre })}
-            isSelected={selectedDep.id == id}
-          />
-        )}
-      />
+      <div className="max-h-96 overflow-y-auto space-y-2">
+        <ItemList
+          items={departamentos}
+          renderCallBack={({ id, nombre, centroide }) => (
+            <Card
+              key={id}
+              nombre={nombre}
+              onClick={() => setSelectedDep({ id, nombre, centroide })}
+              isSelected={selectedDep.id == id}
+            />
+          )}
+        />
+      </div>
     </div>
   );
 };

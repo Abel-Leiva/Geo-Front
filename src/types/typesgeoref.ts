@@ -11,6 +11,7 @@ export interface ProvinciasResponse {
   parametros: object;
   provincias: Provincia[];
   total: number;
+  centroide: Centroide;
 }
 interface Parametros {
   max: number;
@@ -19,6 +20,7 @@ interface Parametros {
 export interface DepartamentosResponse {
   departamentos: Departamento[];
   parametros: Parametros;
+  centroide: Centroide;
 }
 export interface Departamento {
   id: string;

@@ -19,21 +19,31 @@ const ListProv = ({
   provincias,
 }: ListProvProps) => {
   return (
-    <div className={style.conteiner}>
-      <h2>Lista de provincias</h2>
+    <div>
+      {selectedProv.nombre === "" ? (
+        <div className="flex items-center gap-2 text-gray-500 text-base mb-2 animate-bounce">
+          <span>⬇️</span>
+          <span>Elija una Provincia</span>
+        </div>
+      ) : (
+        <h3 className="text-xl font-semibold text-gray-800 mb-4">
+          Lista de provincias
+        </h3>
+      )}
 
-      <ItemList
-        className={style.cardConteiner}
-        items={provincias ?? []}
-        renderCallBack={({ id, nombre }) => (
-          <Card
-            key={id}
-            nombre={nombre}
-            onClick={() => setSelectedProv({ id, nombre })}
-            isSelected={selectedProv.id === id}
-          />
-        )}
-      />
+      <div className="max-h-96 overflow-y-auto space-y-2">
+        <ItemList
+          items={provincias ?? []}
+          renderCallBack={({ id, nombre, centroide }) => (
+            <Card
+              key={id}
+              nombre={nombre}
+              onClick={() => setSelectedProv({ id, nombre, centroide })}
+              isSelected={selectedProv.id === id}
+            />
+          )}
+        />
+      </div>
     </div>
   );
 };

@@ -1,4 +1,3 @@
-import React from "react";
 import ItemList from "../itemList/ItemList";
 import type { Localidad } from "../../types/typesgeoref";
 import Card from "../card/Card";
@@ -19,15 +18,23 @@ const ListLoc = ({
 }: ListPropLoc) => {
   return (
     <div>
-      <h3>
-        localidades del departamento {nameDep}, de la provincia {nameProv}
+      <h3 className="text-lg font-semibold text-gray-800 mb-4">
+        Localidades del departamento {nameDep}, de la provincia de {nameProv}
       </h3>
-      <ItemList
-        items={localidades}
-        renderCallBack={({ id, nombre }) => (
-          <Card nombre={nombre} onClick={() => console.log(nombre)} />
-        )}
-      />
+
+      <div className="max-h-96 overflow-y-auto space-y-2">
+        <ItemList
+          items={localidades}
+          renderCallBack={({ id, nombre }) => (
+            <Card
+              key={id}
+              nombre={nombre}
+              onClick={() => console.log(nombre)}
+              isSelected={selectedLoc.id === id}
+            />
+          )}
+        />
+      </div>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import type {
+  Centroide,
   Departamento,
   Localidad,
   Provincia,
@@ -13,7 +14,7 @@ export const initialProvincia: Provincia = {
 export const initialDepartamento: Departamento = {
   id: "0",
   nombre: "",
-  centroide: { lat: "", lon: "" },
+  centroide: undefined,
 };
 
 export const initialLocalidad: Localidad = {
@@ -24,3 +25,17 @@ export const initialLocalidad: Localidad = {
   municipio: "",
   nombre: "",
 };
+export function centroideToCoords(
+  centroide?: Centroide
+): [number, number] | null {
+  console.log(centroide);
+  if (
+    !centroide ||
+    isNaN(Number(centroide.lat)) ||
+    isNaN(Number(centroide.lon))
+  ) {
+    return null;
+  }
+
+  return [parseFloat(centroide.lat), parseFloat(centroide.lon)];
+}
