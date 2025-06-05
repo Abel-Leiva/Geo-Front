@@ -1,7 +1,7 @@
 //vendors
 import { useEffect, useRef, useState } from "react";
 import useFetch from "../../customHooks/UseFetch";
-import style from "./Home.module.css";
+
 import ListProv from "../listProv/ListProv";
 //helpers
 import {

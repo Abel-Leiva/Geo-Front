@@ -4,7 +4,7 @@ import Card from "../card/Card";
 //types
 interface ListPropLoc {
   selectedLoc: Localidad;
-  setSelectedLoc: (loc: Localidad) => void;
+  setSelectedLoc?: (loc: Localidad) => void;
   localidades: Localidad[];
   nameProv?: string;
   nameDep?: string;
@@ -12,7 +12,7 @@ interface ListPropLoc {
 const ListLoc = ({
   localidades,
   selectedLoc,
-  setSelectedLoc,
+
   nameDep,
   nameProv,
 }: ListPropLoc) => {

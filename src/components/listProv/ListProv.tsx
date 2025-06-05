@@ -1,5 +1,3 @@
-//style
-import style from "./ListProv.module.css";
 //components
 import Card from "../card/Card.tsx";
 //vendors
